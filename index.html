@@ -49,6 +49,10 @@
             for (i = 0; i <= baseNote; i++) {
                let result = (i * 100) / baseNote;
 
+               if (!baseNote) {
+                  return;
+               }
+
                const item = document.createElement("li");
                item.classList.add("list-group-item");
 
