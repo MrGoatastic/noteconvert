@@ -50,7 +50,20 @@
 
             for (i = 0; i <= baseNote; i++) {
                let result = (i * 100) / baseNote;
-               let icon = "";
+
+               let icon = `<span class= pe-3>
+               <svg version="1.1" id="svg1" height="16px" viewBox="0 0 682.66669 682.66669" sodipodi:docname="Skull-05.eps" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <defs id="defs1"/>
+  <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1">
+    <inkscape:page x="0" y="0" inkscape:label="1" id="page1" width="682.66669" height="682.66669" margin="0" bleed="0"/>
+  </sodipodi:namedview>
+  <g id="g1" inkscape:groupmode="layer" inkscape:label="1">
+    <g id="group-R5">
+      <path id="path2" d="m 3584,2304 c -282.75,0 -512,229 -512,512 0,282.75 229.25,512 512,512 283,0 512,-229.25 512,-512 0,-283 -229,-512 -512,-512 z m -2048,0 c -282.75,0 -512,229 -512,512 0,282.75 229.25,512 512,512 283,0 512,-229.25 512,-512 0,-283 -229,-512 -512,-512 z M 4096,768 C 4096,343.75 3752.25,0 3328,0 H 1792 C 1368,0 1024,343.75 1024,768 V 989.25 C 394,1321.75 0,1975.5 0,2688 v 512 c 0,1060.25 859.75,1920 1920,1920 h 1280 c 1060.5,0 1920,-859.75 1920,-1920 V 2688 C 5120.25,1975.5 4726.25,1321.75 4096,989.25 Z M 2816,512 h 512 c 141.5,0 256,114.5 256,256 v 529.75 L 3856.75,1442 C 4319,1685.5 4608.5,2165.25 4608,2688 v 512 c 0,777.5 -630.25,1408 -1408,1408 H 1920 C 1142.5,4608 512.004,3977.5 512.004,3200 V 2688 C 511.746,2165.25 801.25,1685.5 1263.5,1442 L 1536,1297.75 V 768 c 0,-141.5 114.75,-256 256,-256 h 512 v 512 c 0,141.25 114.75,256 256,256 141.5,0 256,-114.75 256,-256 V 512" style="fill:#100f0d;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="matrix(0.13333333,0,0,-0.13333333,0,682.66667)"/>
+    </g>
+  </g>
+</svg></span>`;
+
                if (baseNote == null) {
                   return;
                }
@@ -58,7 +71,10 @@
                const item = document.createElement("li");
                item.classList.add("list-group-item");
                item.classList.add("bg-light");
-               if (Math.round(result) < 49) {
+
+               if (Math.round(result) == 0) {
+                  item.classList.add("text-dark");
+               } else if (Math.round(result) < 49) {
                   item.classList.add("text-danger");
                   icon =
                      '<i class="bi bi-exclamation-triangle-fill pe-3" style="color: red"></i>';
