@@ -9,6 +9,9 @@
          rel="stylesheet"
          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
          crossorigin="anonymous" />
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
    </head>
    <body
       class="d-flex flex-column align-items-center justify-content-start m-0 p-0">
@@ -47,7 +50,7 @@
 
             for (i = 0; i <= baseNote; i++) {
                let result = (i * 100) / baseNote;
-
+               let icon = "";
                if (baseNote == null) {
                   return;
                }
@@ -57,18 +60,34 @@
                item.classList.add("bg-light");
                if (Math.round(result) < 49) {
                   item.classList.add("text-danger");
+                  icon =
+                     '<i class="bi bi-exclamation-triangle-fill pe-3" style="color: red"></i>';
                } else if (Math.round(result) < 60) {
                   item.style.color = "#ff8407";
+                  icon =
+                     '<i class="bi bi-bandaid-fill pe-3" style="color: pink"></i>';
                } else if (Math.round(result) < 75) {
                   item.style.color = "#d7bd27";
+                  icon =
+                     '<i class="bi bi-stars pe-3" style="color: lightblue"></i>';
                } else if (Math.round(result) < 90) {
                   item.classList.add("text-success");
+                  icon =
+                     '<i class="bi bi-balloon-heart-fill pe-3" style="color: red"></i>';
                } else {
                   item.classList.add("text-primary");
+                  icon =
+                     '<i class="bi bi-award-fill pe-3" style="color: gold"></i>';
                }
-               item.textContent = `${i}/${baseNote} -> Note : ${Math.round(
-                  result
-               )} %`;
+
+               item.innerHTML =
+                  icon +
+                  i +
+                  "/" +
+                  baseNote +
+                  "  <i class='bi bi-arrow-right'></i>  Note : " +
+                  Math.round(result) +
+                  "%";
                list.insertBefore(item, list.firstChild);
             }
          }
