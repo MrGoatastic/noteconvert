@@ -27,7 +27,6 @@
       </form>
 
       <ul
-         data-bs-theme="dark"
          id="list"
          class="list-group list-group w-100"
          style="max-width: 500px"></ul>
@@ -55,7 +54,7 @@
 
                const item = document.createElement("li");
                item.classList.add("list-group-item");
-
+               item.classList.add("bg-light");
                if (Math.round(result) < 49) {
                   item.classList.add("text-danger");
                } else if (Math.round(result) < 60) {
