@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Convertisseur</title>
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+         crossorigin="anonymous" />
+   </head>
+   <body
+      class="d-flex flex-column align-items-center justify-content-start m-0 p-0">
+      <h1 class="h1 my-3 mx-2 text-center">Tableau conversion de note</h1>
+
+      <form method="get" style="max-width: 300px">
+         <label class="form-label" for="value"> Entrez la base </label>
+         <input class="form-control" id="value" name="value" />
+         <button
+            id="convert"
+            class="btn btn-success w-100 my-3"
+            type="submit"
+            onclick="printResult()">
+            Convertir
+         </button>
+      </form>
+
+      <ol
+         data-bs-theme="dark"
+         id="list"
+         class="list-group list-group-numbered w-100"
+         style="max-width: 500px"></ol>
+
+      <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+         crossorigin="anonymous"></script>
+      <script>
+         printResult();
+
+         function printResult() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const baseNote = urlParams.get("value");
+
+            const list = document.getElementById("list");
+            list.innerHTML = "";
+
+            for (i = 0; i < baseNote; i++) {
+               let result = ((i + 1) * 100) / baseNote;
+
+               const item = document.createElement("li");
+               item.classList.add("list-group-item");
+
+               if (Math.round(result) < 49) {
+                  item.classList.add("text-danger");
+               } else if (Math.round(result) < 60) {
+                  item.style.color = "#ff8407";
+               } else if (Math.round(result) < 75) {
+                  item.style.color = "#ffd700";
+               } else if (Math.round(result) < 90) {
+                  item.classList.add("text-success");
+               } else {
+                  item.classList.add("text-primary");
+               }
+               item.textContent = `Note : ${Math.round(result)} %`;
+               list.insertBefore(item, list.firstChild);
+            }
+         }
+      </script>
+   </body>
+</html>
