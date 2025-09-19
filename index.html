@@ -19,7 +19,7 @@
 
       <form method="get" style="max-width: 300px">
          <label class="form-label" for="value"> Entrez la base </label>
-         <input class="form-control" id="value" name="value" />
+         <input type="number" class="form-control" id="value" name="value" />
          <button
             id="convert"
             class="btn btn-success w-100 my-3"
@@ -69,11 +69,11 @@
                } else if (Math.round(result) < 75) {
                   item.style.color = "#d7bd27";
                   icon =
-                     '<i class="bi bi-stars pe-3" style="color: lightblue"></i>';
+                     '<i class="bi bi-balloon-heart-fill pe-3" style="color: red"></i>';
                } else if (Math.round(result) < 90) {
                   item.classList.add("text-success");
                   icon =
-                     '<i class="bi bi-balloon-heart-fill pe-3" style="color: red"></i>';
+                     '<i class="bi bi-stars pe-3" style="color: lightblue"></i>';
                } else {
                   item.classList.add("text-primary");
                   icon =
